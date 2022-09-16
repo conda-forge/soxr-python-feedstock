@@ -1,5 +1,5 @@
 {% set name = "soxr" %}
-{% set version = "0.3.2b1" %}
+{% set version = "0.3.2" %}
 
 package:
   name: soxr-python
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/soxr-{{ version }}.tar.gz
-  sha256: dfe28b54e2f1910a345c81e3612252c7a50112ebdfe76e3de4560c26b55687c3
+  sha256: 68b10fdaa0e6f3c5f34569f531040d31acc2f5255c056460c888ab19232747a5
 
 build:
   skip: true  # [py2k]
   script: {{ PYTHON }} -m pip install . -vv --config-settings="--build-option=--use-system-libsoxr"
-  number: 2
+  number: 0
 
 requirements:
   build:
