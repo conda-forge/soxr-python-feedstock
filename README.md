@@ -1,11 +1,11 @@
-About soxr-python
-=================
+About soxr-python-feedstock
+===========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/soxr-python-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/dofuuz/python-soxr
 
 Package license: LGPL-2.1-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/soxr-python-feedstock/blob/main/LICENSE.txt)
 
 Summary: High quality, one-dimensional sample-rate conversion library
 
