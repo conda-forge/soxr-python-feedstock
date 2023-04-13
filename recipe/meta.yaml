@@ -11,7 +11,7 @@ source:
 
 build:
   skip: true  # [py2k]
-  script: {{ PYTHON }} -m pip install . -vv --config-settings="--build-option=--use-system-libsoxr"
+  script: {{ PYTHON }} -m pip install . -vv
   number: 0
 
 requirements:
@@ -23,14 +23,11 @@ requirements:
     - pip
     - python
     - setuptools_scm
-    - soxr
   run:
     - python
     - {{ pin_compatible('numpy') }}
 
 test:
-  imports:
-    - soxr
   commands:
     - pip check
   requires:
