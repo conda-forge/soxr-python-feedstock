@@ -1,5 +1,5 @@
 {% set name = "soxr" %}
-{% set version = "0.3.7" %}
+{% set version = "0.4.0" %}
 
 package:
   name: soxr-python
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/soxr-{{ version }}.tar.gz
-  sha256: 436ddff00c6eb2c75b79c19cfdca7527b1e31b5fad738652f044045ba6258593
+  sha256: 02385e3de07e28ddbc19ab41216075d889575895e778ce2ada950d5f46cf6a52
 
 build:
   skip: true  # [py2k]
@@ -21,6 +21,7 @@ requirements:
     - cython                                 # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - cython >=3.0a7
     - numpy
