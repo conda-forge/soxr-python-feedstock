@@ -10,7 +10,8 @@ source:
   sha256: 02385e3de07e28ddbc19ab41216075d889575895e778ce2ada950d5f46cf6a52
 
 build:
-  skip: true  # [py2k]
+  skip: true  # [py<39]
+  skip: true  # [python_impl == "pypy"]
   script: {{ PYTHON }} -m pip install . -vv --config-settings="--build-option=--use-system-libsoxr"
   number: 0
 
@@ -23,7 +24,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
   host:
-    - cython >=3.0a7
+    - cython >=3.0.0
     - numpy
     - pip
     - python
@@ -31,6 +32,7 @@ requirements:
     - soxr
   run:
     - python
+    - numpy
 
 test:
   imports:
