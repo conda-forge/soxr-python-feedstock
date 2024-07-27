@@ -39,8 +39,10 @@ test:
     - soxr
   commands:
     - pip check
+    - pytest
   requires:
     - pip
+    - pytest
 
 about:
   home: https://github.com/dofuuz/python-soxr
