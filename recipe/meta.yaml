@@ -39,7 +39,7 @@ test:
     - soxr
   commands:
     - pip check
-    - pytest
+    - pytest --pyargs soxr
   requires:
     - pip
     - pytest
