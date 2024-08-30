@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 2348636..9a07941 100644
+index 2348636..39e486b 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -65,22 +65,31 @@ nanobind_add_module(soxr_ext STABLE_ABI NB_STATIC
+@@ -65,22 +65,35 @@ nanobind_add_module(soxr_ext STABLE_ABI NB_STATIC
      ${CSOXR_VER_C}
  )
  
@@ -36,6 +36,10 @@ index 2348636..9a07941 100644
 +    # Find system libsoxr
 +    find_library(SOXR_LIBRARY NAMES soxr)
 +    find_path(SOXR_INCLUDE_DIR soxr.h)
++
++    message(STATUS "Building with external libsoxr")
++    message(SOXR_LIBRARY="${SOXR_LIBRARY}")
++    message(SOXR_INCLUDE_DIR="${SOXR_INCLUDE_DIR}")
 +
 +    target_link_libraries(soxr_ext PRIVATE ${SOXR_LIBRARY})
 +    target_include_directories(soxr_ext PRIVATE ${SOXR_INCLUDE_DIR})
