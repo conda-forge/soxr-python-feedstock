@@ -6,7 +6,10 @@ package:
   version: {{ version }}
 
 source:
-  url: ../soxr-0.5.1.dev1+gce1b380.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/soxr-{{ version }}.tar.gz
+  sha256: 6db338bbb01b73ad31534dd48e1b1eafa767714223f7d403c7633c987bdbd719
+  patches:
+    - cross-sys.patch
 
 build:
   skip: true  # [py<39]
