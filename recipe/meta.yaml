@@ -1,5 +1,5 @@
 {% set name = "soxr" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.0.post1" %}
 
 package:
   name: soxr-python
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/soxr-{{ version }}.tar.gz
-  sha256: 02385e3de07e28ddbc19ab41216075d889575895e778ce2ada950d5f46cf6a52
+  sha256: 7092b9f3e8a416044e1fa138c8172520757179763b85dc53aa9504f4813cff73
 
 build:
   skip: true  # [py<39]
