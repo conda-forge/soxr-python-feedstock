@@ -6,14 +6,14 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/soxr-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/soxr-{{ version }}.tar.gz
   sha256: 7092b9f3e8a416044e1fa138c8172520757179763b85dc53aa9504f4813cff73
 
 build:
   skip: true  # [py<39]
   skip: true  # [python_impl == "pypy"]
   script: {{ PYTHON }} -m pip install . -vv -C cmake.define.USE_SYSTEM_LIBSOXR=ON
-  number: 1
+  number: 2
 
 requirements:
   build:
