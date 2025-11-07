@@ -13,7 +13,7 @@ build:
   skip: true  # [py<39]
   skip: true  # [python_impl == "pypy"]
   script: {{ PYTHON }} -m pip install . -vv -C cmake.define.USE_SYSTEM_LIBSOXR=ON
-  number: 0
+  number: 1
 
 requirements:
   build:
