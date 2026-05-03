@@ -1,5 +1,5 @@
 {% set name = "soxr" %}
-{% set version = "1.0.0" %}
+{% set version = "1.1.0" %}
 
 package:
   name: soxr-python
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/soxr-{{ version }}.tar.gz
-  sha256: e07ee6c1d659bc6957034f4800c60cb8b98de798823e34d2a2bba1caa85a4509
+  sha256: 9f228ae21c78fa9359ca98d8a5e8e91f30639e438e574133dace62c5b5309e44
 
 build:
   skip: true  # [py<39]
   skip: true  # [python_impl == "pypy"]
   script: {{ PYTHON }} -m pip install . -vv -C cmake.define.USE_SYSTEM_LIBSOXR=ON
-  number: 1
+  number: 0
 
 requirements:
   build:
