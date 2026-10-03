@@ -1,5 +1,6 @@
 {% set name = "soxr" %}
 {% set version = "1.1.0" %}
+{% set abi3_min = "3.12" %}
 
 package:
   name: soxr-python
@@ -10,10 +11,10 @@ source:
   sha256: 9f228ae21c78fa9359ca98d8a5e8e91f30639e438e574133dace62c5b5309e44
 
 build:
-  skip: true  # [py<39]
-  skip: true  # [python_impl == "pypy"]
+  python_version_independent: true       # [py == 312]
+  skip: true                             # [py > 312 and not python.endswith("t")]
   script: {{ PYTHON }} -m pip install . -vv -C cmake.define.USE_SYSTEM_LIBSOXR=ON
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -29,6 +30,7 @@ requirements:
     - scikit-build-core >=0.9.0
     - pip
     - python
+    - python-abi3                        # [py == 312]
     - setuptools_scm
     - soxr
   run:
@@ -43,13 +45,16 @@ test:
   commands:
     - pip check
     - pytest ./tests
+    - abi3audit $SP_DIR/soxr/soxr_ext.abi3.so -s -v --assume-minimum-abi3 {{ abi3_min }}   # [unix and py == 312]
+    - abi3audit %SP_DIR%\soxr\soxr_ext.pyd -s -v --assume-minimum-abi3 {{ abi3_min }}      # [win and py == 312]
   requires:
     - pip
     - pytest
+    - abi3audit                          # [py == 312]
 
 about:
   home: https://github.com/dofuuz/python-soxr
-  summary: High quality, one-dimensional sample-rate conversion library
+  summary: High quality, one-dimensional sample-rate conversion library for Python
   doc_url: https://python-soxr.readthedocs.io
   dev_url: https://github.com/dofuuz/python-soxr
   license: LGPL-2.1-or-later
